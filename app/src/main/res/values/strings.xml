@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">askme</string>
+    <string name="app_name">AskCom</string>
     <string-array name="university_options">
         <item>ISET\'COM</item>
         <item>ISET SILIANA</item>
