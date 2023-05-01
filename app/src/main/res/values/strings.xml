@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">askme</string>
+    <string-array name="university_options">
+        <item>ISET\'COM</item>
+        <item>ISET SILIANA</item>
+        <item>ISET RADES</item>
+        <item>ISET CHARGUIA</item>
+        <item>ISET BEJA</item>
+        <item>ISET KEF</item>
+        <item>ISET ZAGHWEN</item>
+        <item>ISET MAHDIA</item>
+    </string-array>
+    <string-array name="study_options">
+        <item>TELECOMUNICATION</item>
+        <item>COMPUTER SCIENCE</item>
+        <item>ELECTRICAL STUDEIS</item>
+    </string-array>
+    <string-array name="category_options">
+        <item>JAVA</item>
+        <item>C++</item>
+        <item>PYTHON</item>
+        <item>HTML/CSS/JS</item>
+        <item>PHP</item>
+        <item>NODEJS</item>
+        <item>ANGULAR/REACT/VUE</item>
+        <item>MONGODB</item>
+    </string-array>
+</resources>
