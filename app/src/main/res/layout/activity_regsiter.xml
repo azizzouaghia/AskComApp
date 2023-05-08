@@ -40,7 +40,7 @@
         android:orientation="vertical"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginTop="295dp">
+        android:layout_marginTop="350dp">
 
         <EditText
             android:id="@+id/usernameEditText"
@@ -58,7 +58,7 @@
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:background="@drawable/edit_text"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -68,45 +68,15 @@
             android:inputType="textPassword"
             android:padding="16dp"
             android:background="@drawable/edit_text"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="University :"
-            android:textSize="18dp"
-            android:paddingTop="5dp"
-            android:paddingLeft="5dp"/>
-
-        <Spinner
-            android:id="@+id/universitySpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:spinnerMode="dropdown"
-            android:entries="@array/university_options"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Field of Study :"
-            android:textSize="18dp"
-            android:paddingTop="5dp"
-            android:paddingLeft="5dp"/>
-
-        <Spinner
-            android:id="@+id/fieldOfStudySpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:spinnerMode="dropdown"
-            android:entries="@array/study_options"/>
 
         <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register"
+            android:layout_marginTop="25dp"
             android:textColor="@color/white"
             android:background="@drawable/rounded_shape"
             />

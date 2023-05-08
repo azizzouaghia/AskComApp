@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "909022403127",
+    "project_id": "askcom-345a0",
+    "storage_bucket": "askcom-345a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909022403127:android:deeb8c9c510bdfc6dafdb2",
+        "android_client_info": {
+          "package_name": "com.example.askme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909022403127-rgtfa0bmq28po6aptm0rghfcqedfmjbd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQDxDDsQ7qF_yJ6C8Dev7MpKz8DinwuKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909022403127-rgtfa0bmq28po6aptm0rghfcqedfmjbd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
