@@ -25,6 +25,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class RegsiterActivity extends AppCompatActivity {
@@ -69,10 +70,6 @@ public class RegsiterActivity extends AppCompatActivity {
                     return;
                 }
 
-                registerButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
                         databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -80,33 +77,48 @@ public class RegsiterActivity extends AppCompatActivity {
                                 String userId = usersRef.push().getKey();
 
                                 //Check The Username/Email
-                                boolean usernameExists = false;
-                                boolean emailExists = false;
-                                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                                    String childUsername = childSnapshot.child("username").getValue(String.class);
-                                    String childEmail = childSnapshot.child("email").getValue(String.class);
-                                    if (childUsername != null && childUsername.equals(username)) {
-                                        usernameExists = true;
+                                Query usernameQuery = FirebaseDatabase.getInstance().getReference("users").orderByChild("username").equalTo(username);
+                                Query mailQuery = FirebaseDatabase.getInstance().getReference("users").orderByChild("email").equalTo(email);
+                                usernameQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            Boolean usernameExists=snapshot.exists();
+
+                                            mailQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    Boolean emailExists = snapshot.exists();
+
+                                                    if(usernameExists || emailExists){
+
+                                                        Toast.makeText(RegsiterActivity.this,"username/email Exists",Toast.LENGTH_LONG).show();
+
+                                                    } else {
+
+                                                        usersRef.child(userId).child("username").setValue(username);
+                                                        usersRef.child(userId).child("email").setValue(email);
+                                                        usersRef.child(userId).child("password").setValue(password);
+                                                        Toast.makeText(RegsiterActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
+
+                                                        Intent intent = new Intent(RegsiterActivity.this,MainActivity.class);
+                                                        startActivity(intent);
+                                                    }
+
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                                }
+                                            });
+
                                     }
-                                    if (childEmail != null && childEmail.equals(email)) {
-                                        emailExists = true;
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
                                     }
-                                }
-                                if(usernameExists   || emailExists){
-
-                                    Toast.makeText(RegsiterActivity.this, "This UserName/Email is already used", Toast.LENGTH_SHORT).show();
-
-                                } else {
-
-                                    usersRef.child(userId).child("username").setValue(username);
-                                    usersRef.child(userId).child("email").setValue(email);
-                                    usersRef.child(userId).child("password").setValue(password);
-                                    Toast.makeText(RegsiterActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }
-
-
-
+                                });
                             }
 
                             @Override
@@ -114,10 +126,6 @@ public class RegsiterActivity extends AppCompatActivity {
 
                             }
                         });
-                    }
-                });
-
-
             }
         });
         //*********************/Create Account*******************************//
