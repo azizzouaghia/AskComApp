@@ -13,6 +13,7 @@ public class Question_item extends AppCompatActivity {
 
     public static ArrayList<Question_item> questionList = new ArrayList<>();
     private int id;
+    private String username;
     private int UserId;
     private String QuestionText;
     private int CatId;
@@ -20,10 +21,11 @@ public class Question_item extends AppCompatActivity {
     private Date date;
 
 
-    public Question_item(String questionText, Date date) {
+    public Question_item(String name,String questionText, Date date) {
         this.id = id;
         UserId = 0;
         QuestionText = questionText;
+        username = name;
         CatId = 0;
         LikesNum = 0;
         this.date = date;
@@ -43,6 +45,14 @@ public class Question_item extends AppCompatActivity {
 
     public void setUserId(int userId) {
         UserId = userId;
+    }
+
+    public String getusername() {
+        return username;
+    }
+
+    public void setusername(String name) {
+        username = name;
     }
 
     public String getQuestionText() {

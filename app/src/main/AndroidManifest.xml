@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Askme"
         tools:targetApi="31">
         <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".AddQuestion"
             android:exported="false" />
         <activity

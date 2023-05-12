@@ -65,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
                                     // Password is correct
                                     Toast.makeText(MainActivity.this,"Welcome "+username,Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(MainActivity.this,DashboardActivity.class);
+                                    intent.putExtra("username",username);
                                     startActivity(intent);
+                                    finish();
                                     return;
                                 }
                             }

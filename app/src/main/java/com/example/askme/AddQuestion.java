@@ -15,10 +15,15 @@ import java.util.Date;
 public class AddQuestion extends AppCompatActivity {
 
     private EditText questionText,categoryText;
+    String username = "DEFAULT_USERNAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        username = String.valueOf(intent.getStringExtra("username"));
+
         setContentView(R.layout.activity_add_question);
         initWidgets();
     }
@@ -32,11 +37,12 @@ public class AddQuestion extends AppCompatActivity {
         String question = String.valueOf(questionText.getText());
         String category = String.valueOf(categoryText.getText());
         int id = Question_item.questionList.size();
-        Question_item newQuestion = new Question_item(question, new Date());
+        Question_item newQuestion = new Question_item(username,question, new Date());
         Question_item.questionList.add(newQuestion);
         Toast.makeText(this, "Question Added", Toast.LENGTH_SHORT).show();
 
         Intent newQuestionIntent = new Intent(AddQuestion.this,DashboardActivity.class);
         startActivity(newQuestionIntent);
+        finish();
     }
 }

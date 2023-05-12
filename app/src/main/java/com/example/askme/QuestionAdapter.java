@@ -31,7 +31,7 @@ public class QuestionAdapter extends ArrayAdapter<Question_item> {
             TextView questionText = convertView.findViewById(R.id.question_text);
             ImageView userPicture = convertView.findViewById(R.id.user_picture);
 
-            userName.setText("aziz");
+            userName.setText(question.getusername());
             questionText.setText(question.getQuestionText());
             userPicture.setImageResource(R.drawable.user_icon);
 
