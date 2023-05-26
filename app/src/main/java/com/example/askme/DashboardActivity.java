@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,15 +22,18 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
-        Intent intent = getIntent();
-        username = String.valueOf(intent.getStringExtra("username"));
-
+        username = data.getInstance().getUsername();
         initWidgets();
         setQuestionAdapter();
 
-    }
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initWidgets();
+        setQuestionAdapter();
+    }
     private void initWidgets() {
         questionListView = findViewById(R.id.question_list);
     }
@@ -59,7 +63,6 @@ public class DashboardActivity extends AppCompatActivity {
     //*****************************newQuestion***************************************//
     public void newQuestion(View view){
         Intent newQuestionIntent = new Intent(DashboardActivity.this,AddQuestion.class);
-        newQuestionIntent.putExtra("username",username);
         startActivity(newQuestionIntent);
     }
     //*****************************/newQuestion**************************************//

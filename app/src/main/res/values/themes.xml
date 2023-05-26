@@ -5,5 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Askme" parent="Base.Theme.Askme" />
+    <style name="Theme.Askme.NOActionBar" parent="Base.Theme.Askme">
+
+        <item name="android:statusBarColor">@color/blue</item>
+
+    </style>
 </resources>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.askme.sampledata.Question_item;
+import com.example.askme.sampledata.cmnt_item;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
         usernameEditText = findViewById(R.id.usernameEditText);
         passEditText = findViewById(R.id.passwordEditText);
 
+        //*********************Problem Of FireBase Delay*************************//
+        /**//**//**//**/Question_item.loadQuestionsFromFirebase();//**//**//**//**/
+                            cmnt_item.loadCmntsFromFirebase();
+        //*********************/Problem Of FireBase Delay************************//
+
+
+
         //*********************Login*************************//
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
                 pass = String.valueOf(passEditText.getText());
 
                 if (TextUtils.isEmpty(username)){ //Check if username is empty
-                    Toast.makeText(MainActivity.this, "ya bro ekteb l username yehdik", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "The username field is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(pass)){ //Check if pass is empty
                     Toast.makeText(MainActivity
-                            .this, "ya3ni t7eb tud5el ma8ir pass :)", Toast.LENGTH_SHORT).show();
+                            .this, "The password field is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -66,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this,"Welcome "+username,Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(MainActivity.this,DashboardActivity.class);
                                     intent.putExtra("username",username);
+                                    data.getInstance().setUsername(username);
                                     startActivity(intent);
                                     finish();
                                     return;
@@ -103,5 +114,10 @@ public class MainActivity extends AppCompatActivity {
         });
         //**********************/RegisterPage Redirection**********************//
 
+    }
+
+    public void about(View v){
+        Intent intent = new Intent(MainActivity.this, about.class);
+        startActivity(intent);
     }
 }

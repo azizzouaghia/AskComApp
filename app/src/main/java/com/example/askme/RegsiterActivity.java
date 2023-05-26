@@ -28,6 +28,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class RegsiterActivity extends AppCompatActivity {
 
 
@@ -58,15 +62,15 @@ public class RegsiterActivity extends AppCompatActivity {
                 password = String.valueOf(passwordE.getText());
 
                 if (TextUtils.isEmpty(email)){ //Check if email is empty
-                    Toast.makeText(RegsiterActivity.this, "ya bro ekteb l mail yehdik", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegsiterActivity.this, "The email field is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(username)){ //Check if name is empty
-                    Toast.makeText(RegsiterActivity.this, "ya3ni t7eb tud5el ma8ir ism nice nice", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegsiterActivity.this, "The username field is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(email)){ //Check if pass is empty
-                    Toast.makeText(RegsiterActivity.this, "ya3ni ktebet l mail wl username w pass le", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegsiterActivity.this, "The username field is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -94,10 +98,13 @@ public class RegsiterActivity extends AppCompatActivity {
                                                         Toast.makeText(RegsiterActivity.this,"username/email Exists",Toast.LENGTH_LONG).show();
 
                                                     } else {
+                                                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                                                        String formattedDate = dateFormat.format(new Date());
 
                                                         usersRef.child(userId).child("username").setValue(username);
                                                         usersRef.child(userId).child("email").setValue(email);
                                                         usersRef.child(userId).child("password").setValue(password);
+                                                        usersRef.child(userId).child("createdDate").setValue(formattedDate);
                                                         Toast.makeText(RegsiterActivity.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
 
                                                         Intent intent = new Intent(RegsiterActivity.this,MainActivity.class);

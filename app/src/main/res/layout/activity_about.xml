@@ -29,22 +29,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24dp"
-            android:text="Profile"
+            android:text="About"
             android:layout_weight="1"
             android:layout_marginStart="0dp"
+            android:layout_marginEnd="55dp"
             android:gravity="center"
             android:textColor="@color/white"
             />
-
-        <ImageView
-            android:id="@+id/dashboard_icon"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:src="@drawable/add_icon2"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:onClick="newQuestion"
-            ></ImageView>
 
     </LinearLayout>
 
@@ -62,7 +53,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/profil"></ImageView>
+            android:src="@drawable/icon"></ImageView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,18 +66,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="username"
-                android:textColor="@android:color/black"
+                android:text="ASKCOM"
+                android:textColor="@color/blue"
                 android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="student"
-                android:textColor="@android:color/black"
+                android:text="developed by:"
+                android:textColor="@color/orange"
                 android:textSize="18dp" />
 
+            <TextView
+                android:id="@+id/devName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mohamed Aziz Zouaghia"
+                android:textColor="@android:color/black"
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -96,86 +94,74 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="110dp"
         android:orientation="vertical"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp">
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/git"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Source Code :"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/github"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="10dp"
-            android:text="Email :"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="azizzouaghoa360@email.com"
-            android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:src="@drawable/github"
+            android:onClick="sourcecode"
+            ></ImageView>
 
         <TextView
-            android:id="@+id/text2"
+            android:id="@+id/devContact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Contact The Developer :"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            android:text="University :"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-        <TextView
-            android:id="@+id/univ"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Iset'Com"
-            android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:layout_marginStart="15dp">
 
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Speciality :"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-        <TextView
-            android:id="@+id/speciality"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Computer Science"
-            android:textColor="@color/white"
-            android:textSize="18dp" />
+        <ImageView
+            android:id="@+id/githubdev"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/github"
+            android:onClick="github"></ImageView>
 
-        <TextView
-            android:id="@+id/text4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Join Date :"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-        <TextView
-            android:id="@+id/joinDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="17/05/2023"
-            android:textColor="@color/white"
-            android:textSize="18dp" />
+            <ImageView
+                android:id="@+id/linkedin"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/linkedin"
+                android:onClick="linkedin"></ImageView>
 
-        <Button
-            android:id="@+id/editProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Edit Profile"
-            android:textColor="#ffff"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/blue_btn"
-            android:onClick="editProfil"
-            />
+            <ImageView
+                android:id="@+id/gmail"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/gmail"
+                android:onClick="gmail"></ImageView>
 
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

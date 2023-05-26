@@ -12,8 +12,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Askme"
+        android:theme="@style/Theme.Askme.NOActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".about"
+            android:exported="false" />
+        <activity
+            android:name=".sampledata.cmnt_item"
+            android:exported="false" />
+        <activity
+            android:name=".editUser"
+            android:exported="false" />
+        <activity
+            android:name=".Reply"
+            android:exported="false" />
         <activity
             android:name=".Profile"
             android:exported="false" />
