@@ -3,7 +3,7 @@ An Android app has been developed using Java, which enables you to ask any quest
 
 ### Screenshots :
 #### 1. Login Page :
-<img src="https://i.ibb.co/LQNH2kR//image-2023-05-01-222158036.png" width="200" />
+<img src="https://i.ibb.co/LQNH2kR//image-2023-05-01-22215/8036.png" width="200" />
 
 #### 2. Sign Up Page :
 <img src="https://i.ibb.co/4Rxf/HCD/image-2023-05-01-222244699.png" width="200" />
